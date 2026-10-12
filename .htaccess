@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Document root Hostinger = public_html (tidak bisa diubah).
+    # Redirect semua request ke folder Laravel "public/",
+    # kecuali URI yang sudah diawali "public/" (hindari public/public/...).
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>
